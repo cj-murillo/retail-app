@@ -1,0 +1,37 @@
+name: Pipeline de Calidad Retail App
+
+# ┌─ SECCIÓN 1: TRIGGERS
+# │  ¿Cuándo corre este workflow?
+on:
+  push:
+    branches: [ "main" ]
+
+# ┌─ SECCIÓN 2: JOBS
+# │  ¿Qué tareas ejecutar?
+jobs:
+  build-and-test:
+    # Runner = máquina virtual donde corre
+    runs-on: ubuntu-latest
+
+    # ┌─ SECCIÓN 3: STEPS
+    # │  Pasos secuenciales (ejecutan en orden)
+    steps:
+      # Step 1: Clonar el repositorio
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+        # uses = usa una acción predefinida de GitHub (el runner descarga tu código)
+
+      # Step 2: Análisis de calidad
+      - name: Simular Análisis de Calidad
+        run: |
+          echo "Iniciando análisis de SonarQube simulado..."
+          echo "Revisando HTML y JS..."
+          echo "✅ Código limpio y sin code smells."
+        # run = ejecuta comandos bash directos
+
+      # Step 3: Pruebas
+      - name: Simular Pruebas Unitarias
+        run: |
+          echo "Ejecutando tests de la carpeta tests/..."
+          echo "✅ logic.test.js - PASSED"
+          echo "✅ html.test.js - PASSED"
