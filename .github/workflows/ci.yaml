@@ -12,7 +12,9 @@ jobs:
   build-and-test:
     # Runner = máquina virtual donde corre
     runs-on: ubuntu-latest
-
+    env:
+      DATABASE_ENGINE: ${{ vars.DATABASE_ENGINE }}
+      DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
     # ┌─ SECCIÓN 3: STEPS
     # │  Pasos secuenciales (ejecutan en orden)
     steps:
@@ -20,6 +22,12 @@ jobs:
       - name: Clonar el repositorio
         uses: actions/checkout@v3
         # uses = usa una acción predefinida de GitHub (el runner descarga tu código)
+
+      - name: Ejecutar Comando SH
+        run: |
+          echo "Ejecutando comando SH simulado..."
+          echo "DATABASE_ENGINE: $DATABASE_ENGINE"
+          echo "DATABASE_PASSWORD: $DATABASE_PASSWORD"
 
       # Step 2: Análisis de calidad
       - name: Simular Análisis de Calidad
