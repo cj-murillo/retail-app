@@ -4,14 +4,14 @@ name: Pipeline de Calidad Retail App
 # │  ¿Cuándo corre este workflow?
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 # ┌─ SECCIÓN 2: JOBS
 # │  ¿Qué tareas ejecutar?
 jobs:
   build-and-test:
     # Runner = máquina virtual donde corre
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-lates
 
     # ┌─ SECCIÓN 3: STEPS
     # │  Pasos secuenciales (ejecutan en orden)
